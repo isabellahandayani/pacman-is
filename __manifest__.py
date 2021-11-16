@@ -10,6 +10,7 @@
     "data": [
         'security/ir.model.access.csv',
         'views/rekap_modul.xml',
+        'views/siswa_CRUD.xml',
     ],
     "installable": True,
     "application": True,

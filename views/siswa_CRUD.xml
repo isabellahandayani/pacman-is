@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="siswa_crud_page" name = "Data Siswa">
+        <t t-call="website.layout">
+            <head>
+                <title>Data Siswa</title>
+                <!-- CDN Asset -->
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+            </head>
+            <body>
+                <div class="container-xl m-5">
+                    <div class="d-flex justify-content-between">
+                        <h1>Data Siswa</h1>
+                        <button type="button" class="btn btn-sm btn-primary">New Siswa</button>
+                    </div>
+                    <table class="table table-hover mt-4 table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID Siswa</th>
+                                <th>Batch</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Pekerjaan</th>
+                                <th>Pendidikan</th>
+                                <th>Usia</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p>asdasdasdasdas</p>
+                                </td>
+                                <td>
+                                    aaaaaa
+                                </td>
+                                <td>
+                                    aaaaaa
+                                </td>
+                                <td>
+                                    aaaaaa
+                                </td>
+                                <td>
+                                    aaaaaa
+                                </td>
+                                <td>
+                                    aaaaaa
+                                </td>
+                                <td>
+                                    aaaaaa
+                                </td>
+                                <td>
+                                    <div class="d-flex justify-content-around">
+                                        <button type="button" class="btn btn-sm btn-primary">Edit</button>
+                                        <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </body>
+        </t>
+    </template>
+</odoo>

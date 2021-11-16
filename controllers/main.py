@@ -16,3 +16,14 @@ class RekapModul(http.Controller):
         }
 
         return request.render('pacman-is.rekap_modul_page', data)
+
+class SiswaCRUD(http.Controller):
+    @http.route('/siswa', auth='public', website=True)
+    def siswa_CRUD(self, **kw):
+
+        data_siswa = request.env['read.siswa'].sudo().search([])
+        data = {
+            'data_siswa' : data_siswa
+        }
+
+        return request.render('pacman-is.siswa_crud_page', data)
