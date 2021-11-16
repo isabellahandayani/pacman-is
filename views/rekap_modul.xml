@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="rekap_modul_page" name="Rekap Modul">
+        <t t-call="website.layout">
+        <head>
+            <title>Rekap Modul</title>
+            <!-- CDN Asset -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+        </head>
+        <body>
+            <div class="container mt-5">
+                <h2 class="sale-title">Rekapan per Modul</h2>
+                <table class="table table-hover mt-4 table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Module ID</th>
+                            <th>Module Name</th>
+                            <th>Total Students</th>
+                            <th>Average Score</th>
+                            <th>Highest Score</th>
+                            <th>Lowest Score</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+                    <t t-foreach="rekap_modul" t-as="row">
+                        <tr>
+                            <td>
+                                <t t-esc="row.id_modul" />
+                            </td>
+                            <td>
+                                <t t-esc="row.nama_modul" />
+                            </td>
+                            <td>
+                                <t t-esc="row.total_siswa" />
+                            </td>
+                            <td>
+                                <t t-esc="row.avg_score" />
+                            </td>
+                            <td>
+                                <t t-esc="row.max_score" />
+                            </td>
+                            <td>
+                                <t t-esc="row.min_score" />
+                            </td>
+                            <td>
+                                <t t-esc="row.rating" />
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+                <h2 class="mt-5">Rekapan Semua Modul</h2>
+                <table class="table table-hover mt-4">
+                    <tr>
+                        <thead class="thead-dark">
+                            <th>Lowest Score</th>
+                            <th>Lowest Score Modul</th>
+                            <th>Highest Score</th>
+                            <th>Highest Score Modul</th>
+                            <th>Average Rating</th>
+                            <th>Average Score</th>
+                            <th>Total Students</th>
+                            <th>Total Reviews</th>
+                        </thead>
+                    </tr>
+                    <t t-foreach="rekap_summary" t-as="row">
+                        <tr>
+                            <td>
+                                <t t-esc="row.min_score" />
+                            </td>
+                            <td>
+                                <t t-esc="row.min_modul" />
+                            </td>
+                            <td>
+                                <t t-esc="row.high_score" />
+                            </td>
+                            <td>
+                                <t t-esc="row.high_modul" />
+                            </td>
+                            <td>
+                                <t t-esc="row.avg_rating" />
+                            </td>
+                            <td>
+                                <t t-esc="row.avg_score" />
+                            </td>
+                            <td>
+                                <t t-esc="row.total_student" />
+                            </td>
+                            <td>
+                                <t t-esc="row.total_review" />
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </body>
+        </t>
+    </template>
+</odoo>

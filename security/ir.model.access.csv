@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_siswa,access_siswa,model_siswa,,1,1,1,1
+access_modul,access_modul,model_modul,,1,1,1,1
+access_nilai,access_nilai,model_nilai,,1,1,1,1
+access_review,access_review,model_review,,1,1,1,1
+access_rekap_modul,access_rekap_modul,model_rekap_modul,,1,1,1,1
+access_rekap_summary,access_rekap_summary,model_rekap_summary,,1,1,1,1
