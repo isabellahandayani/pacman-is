@@ -11,6 +11,7 @@
         'security/ir.model.access.csv',
         'views/rekap_modul.xml',
         'views/siswa_CRUD.xml',
+        'views/add_siswa.xml',
     ],
     "installable": True,
     "application": True,

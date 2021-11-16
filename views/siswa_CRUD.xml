@@ -11,7 +11,9 @@
                 <div class="container-xl m-5">
                     <div class="d-flex justify-content-between">
                         <h1>Data Siswa</h1>
-                        <button type="button" class="btn btn-sm btn-primary">New Siswa</button>
+                        <a href="/siswa/addsiswa">
+                            <button type="button" class="btn btn-sm btn-primary">New Siswa</button>
+                        </a>
                     </div>
                     <table class="table table-hover mt-4 table-striped">
                         <thead class="thead-dark">
@@ -26,37 +28,39 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <t t-foreach="data_siswa" t-as="row">
                             <tr>
                                 <td>
-                                    <p>asdasdasdasdas</p>
+                                    <t t-esc="row.id_siswa" />
                                 </td>
                                 <td>
-                                    aaaaaa
+                                    <t t-esc="row.batch" />
                                 </td>
                                 <td>
-                                    aaaaaa
+                                    <t t-esc="row.nama" />
                                 </td>
                                 <td>
-                                    aaaaaa
+                                    <t t-esc="row.email" />
                                 </td>
                                 <td>
-                                    aaaaaa
+                                    <t t-esc="row.work" />
                                 </td>
                                 <td>
-                                    aaaaaa
+                                    <t t-esc="row.education" />
                                 </td>
                                 <td>
-                                    aaaaaa
+                                    <t t-esc="row.umur" />
                                 </td>
                                 <td>
                                     <div class="d-flex justify-content-around">
-                                        <button type="button" class="btn btn-sm btn-primary">Edit</button>
+                                        <a href="/rekap">
+                                            <button type="button" class="btn btn-sm btn-primary">Edit</button>
+                                        </a>
                                         <button type="button" class="btn btn-sm btn-danger">Delete</button>
                                     </div>
                                 </td>
                             </tr>
-                        </tbody>
+                        </t>
                     </table>
                 </div>
             </body>

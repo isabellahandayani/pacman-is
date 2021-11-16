@@ -1,9 +1,9 @@
 from odoo import models, fields
 
-class read_siswa(models.Model):
-    _name = 'read.siswa'
+class add_siswa(models.Model):
+    _name = 'add.siswa'
     _auto = False
-    _description = 'Data Siswa'
+    _description = 'Add Data Siswa'
 
     id_siswa = fields.Integer(string="ID Siswa", required=True)
     batch = fields.Integer(string="Batch", required=True)
