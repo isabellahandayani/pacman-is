@@ -53,10 +53,13 @@
                                     </td>
                                     <td>
                                         <div class="d-flex justify-content-around">
-                                            <a href="/rekap">
+                                            <form action="">
                                                 <button type="button" class="btn btn-sm btn-primary">Edit</button>
-                                            </a>
-                                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                            </form>
+                                            <form action="/siswa/deletesiswa">
+                                                <input type="hidden" id="del-ID" name="del-ID" t-att-value="teacher.id" />
+                                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>

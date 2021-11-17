@@ -41,5 +41,10 @@ class SiswaCRUD(http.Controller):
             'usia' : post.get('usia'),
             'batch' : post.get('batch')
         })
-        
+
+        return request.redirect('/siswa')
+    
+    @http.route('/siswa/deletesiswa', auth='public', website=True)
+    def deleteSiswa(self, **post):
+        request.env['siswa'].sudo().search([('id', '=', post.get('del-ID'))]).unlink()
         return request.redirect('/siswa')
