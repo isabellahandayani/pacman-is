@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="update_siswa_page" name = "Update Siswa">
+        <t t-call="website.layout">
+            <head>
+                <title>Update Siswa</title>
+                <!-- CDN Asset -->
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+            </head>
+            <body>
+                <div class="container-xl m-5">
+                    <h1>Update data diri siswa</h1>
+                    <form action="/siswa/updatesiswa/submit">
+                        <t t-foreach="data_siswa" t-as="row">
+                            <input type="hidden" id="del-ID" name="upd-ID" t-att-value="row.id" />
+                            <div class="form-group">
+                                <label for="name">Nama:</label>
+                                <input type="text" class="form-control" name="nama" id="nama" t-att-placeholder="row.nama" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" name="email" id="email" t-att-placeholder="row.email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="pekerjaan">Pekerjaan:</label>
+                                <input type="text" class="form-control" name="pekerjaan" id="pekerjaan" t-att-placeholder="row.work" />
+                            </div>
+                            <div class="form-group">
+                                <label for="pendidikan">Pendidikan terakhir:</label>
+                                <input type="text" class="form-control" name="pendidikan" id="pendidikan" t-att-placeholder="row.education" />
+                            </div>
+                            <div class="form-group">
+                                <label for="usia">Usia:</label>
+                                <input type="number" class="form-control" name="usia" id="usia" t-att-placeholder="row.usia" />
+                            </div>
+                            <div class="form-group">
+                                <label for="batch">Tahun batch:</label>
+                                <input type="number" class="form-control" name="batch" id="batch" t-att-placeholder="row.batch" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </t>
+                    </form>
+                </div>
+            </body>
+        </t>
+    </template>
+</odoo>

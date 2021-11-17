@@ -22,7 +22,7 @@ class SiswaCRUD(http.Controller):
     def siswa_CRUD(self, **kw):
         siswa = request.env['siswa'].sudo().search([])
         data = {
-            'teachers': siswa
+            'data_siswa': siswa
         }
 
         return request.render('pacman-is.siswa_crud_page', data)
@@ -47,4 +47,42 @@ class SiswaCRUD(http.Controller):
     @http.route('/siswa/deletesiswa', auth='public', website=True)
     def deleteSiswa(self, **post):
         request.env['siswa'].sudo().search([('id', '=', post.get('del-ID'))]).unlink()
+        return request.redirect('/siswa')
+
+    @http.route('/siswa/updatesiswa', auth='public', website=True)
+    def updateSiswaPage(self, **post):
+        data_siswa = request.env['siswa'].sudo().search([('id', '=', post.get('upd-ID'))])
+        data = {
+            'data_siswa' : data_siswa
+        }
+        return request.render('pacman-is.update_siswa_page', data)
+    
+    @http.route('/siswa/updatesiswa/submit', auth='public', website=True)
+    def updateSiswa(self, **post):
+        data_siswa = request.env['siswa'].sudo().search([('id', '=', post.get('upd-ID'))])
+        for record in data_siswa:
+            if(post.get('nama') != ''):
+                record.write({
+                    'nama' : post.get('nama'),
+                })
+            if(post.get('email') != ''):
+                record.write({
+                    'email' : post.get('email'),
+                })
+            if(post.get('pekerjaan') != ''):
+                record.write({
+                    'pekerjaan' : post.get('pekerjaan'),
+                })
+            if(post.get('pendidikan') != ''):
+                record.write({
+                    'pendidikan' : post.get('pendidikan'),
+                })
+            if(post.get('usia') != ''):
+                record.write({
+                    'usia' : post.get('usia'),
+                })
+            if(post.get('batch') != ''):
+                record.write({
+                    'batch' : post.get('batch'),
+                })
         return request.redirect('/siswa')
