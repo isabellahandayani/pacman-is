@@ -20,9 +20,9 @@ class RekapModul(http.Controller):
 class SiswaCRUD(http.Controller):
     @http.route('/siswa', auth='public', website=True)
     def siswa_CRUD(self, **kw):
-        data_siswa = request.env['siswa'].sudo().search([])
+        siswa = request.env['siswa'].sudo().search([])
         data = {
-            'data_siswa' : data_siswa
+            'teachers': siswa
         }
 
         return request.render('pacman-is.siswa_crud_page', data)
@@ -41,4 +41,5 @@ class SiswaCRUD(http.Controller):
             'usia' : post.get('usia'),
             'batch' : post.get('batch')
         })
-        return request.render('pacman-is.siswa_crud_page', {})
+        
+        return request.redirect('/siswa')

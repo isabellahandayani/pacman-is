@@ -4,7 +4,6 @@
         <t t-call="website.layout">
             <head>
                 <title>Data Siswa</title>
-                <!-- CDN Asset -->
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
             </head>
             <body>
@@ -28,39 +27,41 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <t t-foreach="siswa" t-as="row">
-                            <tr>
-                                <td>
-                                    <t t-esc="row.id" />
-                                </td>
-                                <td>
-                                    <t t-esc="row.batch" />
-                                </td>
-                                <td>
-                                    <t t-esc="row.nama" />
-                                </td>
-                                <td>
-                                    <t t-esc="row.email" />
-                                </td>
-                                <td>
-                                    <t t-esc="row.work" />
-                                </td>
-                                <td>
-                                    <t t-esc="row.education" />
-                                </td>
-                                <td>
-                                    <t t-esc="row.umur" />
-                                </td>
-                                <td>
-                                    <div class="d-flex justify-content-around">
-                                        <a href="/rekap">
-                                            <button type="button" class="btn btn-sm btn-primary">Edit</button>
-                                        </a>
-                                        <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </t>
+                        <tbody>
+                            <t t-foreach="teachers" t-as="teacher">
+                                <tr>
+                                    <td>
+                                        <t t-esc="teacher.id"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="teacher.batch"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="teacher.nama"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="teacher.email"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="teacher.work"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="teacher.education"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="teacher.usia"/>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex justify-content-around">
+                                            <a href="/rekap">
+                                                <button type="button" class="btn btn-sm btn-primary">Edit</button>
+                                            </a>
+                                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
                     </table>
                 </div>
             </body>

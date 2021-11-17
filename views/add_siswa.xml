@@ -11,34 +11,34 @@
                 <div class="container-xl m-5">
                     <h1>Add new siswa</h1>
                     <form action="/siswa/addsiswa/submit">
-                            <!-- url/controller to called on the form action. -->
-                            <div class="form-group">
-                                <label for="name">Nama:</label>
-                                <input type="text" class="form-control" name="nama" id="nama" required="true" />
-                                <!-- label and id of the fields to be created in the form.These fields should be present in the model for the entry of the data into the database.#           -->
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" name="email" id="email" required="true" />
-                            </div>
-                            <div class="form-group">
-                                <label for="pekerjaan">Pekerjaan:</label>
-                                <input type="text" class="form-control" name="pekerjaan" id="pekerjaan" required="true" />
-                            </div>
-                            <div class="form-group">
-                                <label for="pendidikan">Pendidikan terakhir:</label>
-                                <input type="text" class="form-control" name="pendidikan" id="pendidikan" required="true" />
-                            </div>
-                            <div class="form-group">
-                                <label for="usia">Usia:</label>
-                                <input type="number" class="form-control" name="usia" id="usia" required="true" />
-                            </div>
-                            <div class="form-group">
-                                <label for="batch">Tahun batch:</label>
-                                <input type="number" class="form-control" name="batch" id="batch" required="true" />
-                            </div>
-                            <button type="submit" class="btn btn-primary">Add</button>
-                        </form>
+                        <!-- url/controller to called on the form action. -->
+                        <div class="form-group">
+                            <label for="name">Nama:</label>
+                            <input type="text" class="form-control" name="nama" id="nama" required="true" />
+                            <!-- label and id of the fields to be created in the form.These fields should be present in the model for the entry of the data into the database.#           -->
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" name="email" id="email" required="true" />
+                        </div>
+                        <div class="form-group">
+                            <label for="pekerjaan">Pekerjaan:</label>
+                            <input type="text" class="form-control" name="pekerjaan" id="pekerjaan" required="true" />
+                        </div>
+                        <div class="form-group">
+                            <label for="pendidikan">Pendidikan terakhir:</label>
+                            <input type="text" class="form-control" name="pendidikan" id="pendidikan" required="true" />
+                        </div>
+                        <div class="form-group">
+                            <label for="usia">Usia:</label>
+                            <input type="number" class="form-control" name="usia" id="usia" required="true" />
+                        </div>
+                        <div class="form-group">
+                            <label for="batch">Tahun batch:</label>
+                            <input type="number" class="form-control" name="batch" id="batch" required="true" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </form>
                 </div>
             </body>
         </t>

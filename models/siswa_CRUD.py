@@ -1,7 +1,7 @@
 from odoo import models, fields
 
-class data_siswa(models.Model):
-    _name = 'data.siswa'
+class siswa(models.Model):
+    _name = 'siswa'
     _auto = False
     _description = 'Add Data Siswa'
 
