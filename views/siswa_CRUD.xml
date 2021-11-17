@@ -28,10 +28,10 @@
                                 <th></th>
                             </tr>
                         </thead>
-                        <t t-foreach="data_siswa" t-as="row">
+                        <t t-foreach="siswa" t-as="row">
                             <tr>
                                 <td>
-                                    <t t-esc="row.id_siswa" />
+                                    <t t-esc="row.id" />
                                 </td>
                                 <td>
                                     <t t-esc="row.batch" />

@@ -1,7 +1,7 @@
 from odoo import models, fields
 
-class add_siswa(models.Model):
-    _name = 'add.siswa'
+class data_siswa(models.Model):
+    _name = 'data.siswa'
     _auto = False
     _description = 'Add Data Siswa'
 
@@ -15,8 +15,8 @@ class add_siswa(models.Model):
 
     def _query(self):
         return """
-        SELECT *
-        FROM siswa
+        SELECT (id, batch, nama, email, work, education, usia)
+        FROM siswa;
         """
 
     def init(self):
