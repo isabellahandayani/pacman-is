@@ -102,10 +102,8 @@ class SiswaCRUD(http.Controller):
                 )
         return request.redirect("/siswa")
 
-
-class Overview(http.Controller):
     @http.route("/overview", auth="public", website=True)
     def overview_siswa(self, **kw):
         siswa = request.env["siswa"].sudo().search([])
         data = {"data_siswa": siswa}
-        return request.render("pacman-is.overview_siswa_page", data)
+        return request.render("pacman-is.overview_siswa_tree", data)
