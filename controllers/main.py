@@ -105,5 +105,57 @@ class SiswaCRUD(http.Controller):
     @http.route("/overview", auth="public", website=True)
     def overview_siswa(self, **kw):
         siswa = request.env["siswa"].sudo().search([])
-        data = {"data_siswa": siswa}
-        return request.render("pacman-is.overview_siswa_tree", data)
+        data = {"siswa": siswa}
+        return request.render("pacman-is.overview_siswa", data)
+
+    @http.route("/filter-overview", auth="public", website=True)
+    def filter_overview(self, **post):
+        # Getting filters
+        educations = [post.get("ed1"), post.get("ed2"), post.get("ed3")]
+        works = [post.get("work1"), post.get("work2"), post.get("work3")]
+        ages = [post.get("age1"), post.get("age2"), post.get("age3")]
+
+        # Filtering none values
+        educations = [education for education in educations if education]
+        works = [work for work in works if work]
+        ages = [age for age in ages if age]
+
+        # Creating search domains
+        search_domain = []
+        if educations:
+            education_domain = ("education", "in", educations)
+            search_domain.append(education_domain)
+
+        if works:
+            if "All Jobs" not in works:
+                work_domain = ("work", "in", works)
+                search_domain.append(work_domain)
+
+        age_domain = []
+        for age in ages:
+            if age == "16-20":
+                domain = [("usia", ">=", 16), ("usia", "<=", 20)]
+                age_domain.extend(domain)
+            if age == "21-27":
+                domain = [("usia", ">=", 21), ("usia", "<=", 27)]
+                if age_domain:
+                    age_domain.insert(0, "|")
+                    age_domain.insert(1, "&")
+                    domain.insert(0, "&")
+                age_domain.extend(domain)
+            if age == "> 27":
+                if len(age_domain) == 2:
+                    age_domain.insert(0, "|")
+                    age_domain.insert(1, "&")
+                elif len(age_domain) > 2:
+                    tre = 2
+                    age_domain.insert(0, "|")
+                domain = ("usia", ">", 27)
+                age_domain.append(domain)
+        if age_domain:
+            search_domain.extend(age_domain)
+
+        # Filtering the data with the search domain
+        siswa = request.env["siswa"].sudo().search(search_domain)
+        data = {"siswa": siswa}
+        return request.render("pacman-is.overview_siswa", data)
