@@ -55,14 +55,16 @@ class rekap_siswa(models.Model):
         return """
         SELECT
         row_number() over () as id,
-        month, total_siswa, total_nilai,
+        TO_CHAR(month, 'YYYY-MM-DD') AS "month", 
+        total_siswa, total_nilai,
         total_nilai/total_siswa AS rata_rata
         FROM (SELECT
         DATE_TRUNC('month',time)AS  month,
         COUNT(id) AS total_siswa,
         SUM(nilai) AS total_nilai
         FROM nilai
-        GROUP BY DATE_TRUNC('month',time)) as rekap
+        GROUP BY DATE_TRUNC('month',time)
+        ORDER BY DATE_TRUNC('month',time) ASC) as rekap
         """
 
     # def init(self):

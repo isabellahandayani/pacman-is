@@ -4,7 +4,7 @@
         <field name="name">rekap.siswa.graph</field>
         <field name="model">rekap.siswa</field>
         <field name="arch" type="xml">
-            <graph string="Participations by Courses">
+            <graph string="Participations by Courses" type="line">
                 <field name="month"/>
                 <field name="rata_rata" type="measure"/>
             </graph>
@@ -12,9 +12,10 @@
     </record>
 
     <record model="ir.actions.act_window" id="test_action">
-        <field name="name">A Test Action</field>
+        <field name="name">Performa Siswa</field>
         <field name="res_model">rekap.siswa</field>
         <field name="view_mode">graph</field>
+        <field name="context">{ 'graph_mode': 'line' }</field>
     </record>
 
     <menuitem id="pacman_root" name="pacman" sequence="2"/>
