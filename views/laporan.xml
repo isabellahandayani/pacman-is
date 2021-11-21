@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="generate_report" name="Overview Page">
+        <t t-call="website.layout">
+            <head>
+                <title>Overview Siswa</title>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+            </head>
+            <body>
+                <div class="container-xl m-5">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1>Overview Data Siswa</h1>
+                    </div>
+                    <table class="table table-hover mt-4 table-striped">
+                        <thead>
+                            <form action="/filter-overview">
+                                <tr />
+                                <tr>
+                                    <td>
+                                        <div class="filter-ed">
+                                            <input type="checkbox" id="ed1" name="ed1" value="No Education"></input>
+                                            <label for="ed1"> No Education</label>
+                                            <br></br>
+                                            <input type="checkbox" id="ed2" name="ed2" value="SMA / SMK"></input>
+                                            <label for="ed2"> SMA / SMK</label>
+                                            <br></br>
+                                            <input type="checkbox" id="ed3" name="ed3" value="S1 / D4"></input>
+                                            <label for="ed3"> S1 / D4</label>
+                                            <br></br>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="filter-work">
+                                            <input type="checkbox" id="work1" name="work1" value="Programmer"></input>
+                                            <label for="work1"> Programmer</label>
+                                            <br></br>
+                                            <input type="checkbox" id="work2" name="work2" value="Data Scientist"></input>
+                                            <label for="work2"> Data Scientist</label>
+                                            <br></br>
+                                            <input type="checkbox" id="work3" name="work3" value="All Jobs"></input>
+                                            <label for="work3"> All Jobs</label>
+                                            <br></br>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Apply Filter</button>
+                                    </td>
+                                    <td>
+                                        <div class="filter-age">
+                                            <input type="checkbox" id="age1" name="age1" value="16-20"></input>
+                                            <label for="age1"> 16 - 20 years old</label>
+                                            <br></br>
+                                            <input type="checkbox" id="age2" name="age2" value="21-27"></input>
+                                            <label for="age2"> 21 - 27 years old</label>
+                                            <br></br>
+                                            <input type="checkbox" id="age3" name="age3" value="> 27"></input>
+                                            <label for="age3"> > 27 years old</label>
+                                            <br></br>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </form>
+                        </thead>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID Siswa</th>
+                                <th>Batch</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Pekerjaan</th>
+                                <th>Pendidikan</th>
+                                <th>Usia</th>
+                                <th />
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <record model="ir.ui.view" id="openacademy_session_graph_view">
+                                <field name="name">openacademy.session.graph</field>
+                                <field name="model">openacademy.session</field>
+                                <field name="arch" type="xml">
+                                    <graph string="Participations by Courses">
+                                        <field name="month.month"/>
+                                        <field name="month.rata_rata" type="measure"/>
+                                    </graph>
+                                </field>
+                            </record>
+                        </tbody>
+                    </table>
+                </div>
+            </body>
+        </t>
+    </template>
+</odoo>

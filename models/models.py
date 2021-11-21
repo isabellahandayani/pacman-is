@@ -39,3 +39,37 @@ class review(models.Model):
     id_siswa = fields.Many2one('siswa', string="ID Siswa", required=True)
     id_modul = fields.Many2one('modul', string="ID Modul", required=True)
     rating = fields.Float(string="Rating", required=True)
+
+class rekap_siswa(models.Model):
+    _name = 'rekap.siswa'
+    _auto = False
+    _description = 'Rekapan Nilai Siswa'
+
+
+    month = fields.Char(size=255, string="bulan", required=True)
+    total_siswa = fields.Integer(string="total Siswa", required=True)
+    total_nilai = fields.Float(string="total nilai", required=True)
+    rata_rata = fields.Float(string="rata rata", required=True)
+
+    def _query(self):
+        return """
+        SELECT
+        row_number() over () as id,
+        month, total_siswa, total_nilai,
+        total_nilai/total_siswa AS rata_rata
+        FROM (SELECT
+        DATE_TRUNC('month',time)AS  month,
+        COUNT(id) AS total_siswa,
+        SUM(nilai) AS total_nilai
+        FROM nilai
+        GROUP BY DATE_TRUNC('month',time)) as rekap
+        """
+
+    # def init(self):
+    #     self.env.cr.execute(self._query())
+    
+    def init(self):
+        self.env.cr.execute(
+            """CREATE OR REPLACE VIEW %s as (%s)""" % (
+                self._table, self._query())
+        )

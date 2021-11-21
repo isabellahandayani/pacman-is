@@ -14,6 +14,7 @@
         "views/add_siswa.xml",
         "views/update_siswa.xml",
         "views/overview.xml",
+        "views/laporan.xml",
     ],
     "installable": True,
     "application": True,
