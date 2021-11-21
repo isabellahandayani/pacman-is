@@ -105,7 +105,9 @@ class SiswaCRUD(http.Controller):
     @http.route("/overview", auth="public", website=True)
     def overview_siswa(self, **kw):
         siswa = request.env["siswa"].sudo().search([])
-        data = {"siswa": siswa}
+        filter_count = 0
+        count = request.env["siswa"].sudo().search_count([])
+        data = {"siswa": siswa, "filter_count": filter_count, "count": count}
         return request.render("pacman-is.overview_siswa", data)
 
     @http.route("/laporan", auth="public", website=True)
@@ -156,7 +158,6 @@ class SiswaCRUD(http.Controller):
                     age_domain.insert(0, "|")
                     age_domain.insert(1, "&")
                 elif len(age_domain) > 2:
-                    tre = 2
                     age_domain.insert(0, "|")
                 domain = ("usia", ">", 27)
                 age_domain.append(domain)
@@ -165,5 +166,11 @@ class SiswaCRUD(http.Controller):
 
         # Filtering the data with the search domain
         siswa = request.env["siswa"].sudo().search(search_domain)
-        data = {"siswa": siswa}
+        count = request.env["siswa"].sudo().search_count([])
+        filter_count = request.env["siswa"].sudo().search_count(search_domain)
+        data = {
+            "siswa": siswa,
+            "filter_count": filter_count,
+            "count": count,
+        }
         return request.render("pacman-is.overview_siswa", data)

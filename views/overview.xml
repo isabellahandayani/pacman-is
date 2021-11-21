@@ -61,6 +61,16 @@
                         </thead>
                         <thead class="thead-dark">
                             <tr>
+                                <th>Filter Count</th>
+                                <td>
+                                    <t t-esc="filter_count" />
+                                </td>
+                                <th>Total Count</th>
+                                <td>
+                                    <t t-esc="count" />
+                                </td>
+                            </tr>
+                            <tr>
                                 <th>ID Siswa</th>
                                 <th>Batch</th>
                                 <th>Nama</th>
