@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record model="ir.ui.view" id="laporan_graph_view2">
+        <field name="name">rekap.siswa.graph</field>
+        <field name="model">rekap.siswa</field>
+        <field name="arch" type="xml">
+            <graph string="Participations by Courses">
+                <field name="month"/>
+                <field name="rata_rata" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="test_action">
+        <field name="name">A Test Action</field>
+        <field name="res_model">rekap.siswa</field>
+        <field name="view_mode">graph</field>
+    </record>
+
+    <menuitem id="pacman_root" name="pacman" sequence="2"/>
+    <menuitem id="pacman_graph" name="report" parent="pacman_root" action="test_action"/>
+</odoo>

@@ -59,33 +59,23 @@
                                 </tr>
                             </form>
                         </thead>
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>ID Siswa</th>
-                                <th>Batch</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Pekerjaan</th>
-                                <th>Pendidikan</th>
-                                <th>Usia</th>
-                                <th />
-                            </tr>
-                        </thead>
                         <tbody>
-                            <record model="ir.ui.view" id="openacademy_session_graph_view">
-                                <field name="name">openacademy.session.graph</field>
-                                <field name="model">openacademy.session</field>
-                                <field name="arch" type="xml">
-                                    <graph string="Participations by Courses">
-                                        <field name="month.month"/>
-                                        <field name="month.rata_rata" type="measure"/>
-                                    </graph>
-                                </field>
-                            </record>
+                            <field name="laporan_graph_view"/>
                         </tbody>
                     </table>
                 </div>
             </body>
         </t>
     </template>
+
+    <record model="ir.ui.view" id="laporan_graph_view">
+        <field name="name">rekap.siswa.graph</field>
+        <field name="model">rekap.siswa</field>
+        <field name="arch" type="xml">
+            <graph string="Participations by Courses">
+                <field name="month"/>
+                <field name="rata_rata" type="measure"/>
+            </graph>
+        </field>
+    </record>
 </odoo>

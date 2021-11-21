@@ -114,8 +114,9 @@ class SiswaCRUD(http.Controller):
     def generate_report(self, **kw):
         laporan = request.env["rekap.siswa"].sudo().search([])
         data = {"month": laporan}
-        # return request.render("pacman-is.generate_report", data)
-        return request.render("pacman-is.laporan_graph_view", data)
+        # return request.render("pacman-is.test_action", data)
+        return request.render("pacman-is.generate_report", data)
+        # return request.render("pacman-is.laporan_graph_view", data)
         # return "laporan"
 
     @http.route("/filter-overview", auth="public", website=True)
