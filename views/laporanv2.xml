@@ -18,6 +18,25 @@
         <field name="context">{ 'graph_mode': 'line' }</field>
     </record>
 
+    <record model="ir.ui.view" id="laporan_graph_view_nilai">
+        <field name="name">nilai.graph</field>
+        <field name="model">nilai</field>
+        <field name="arch" type="xml">
+            <graph string="Participations by Courses" type="line">
+                <field name="time"/>
+                <field name="nilai" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="test_action2">
+        <field name="name">Performa Siswa raw</field>
+        <field name="res_model">nilai</field>
+        <field name="view_mode">graph</field>
+        <field name="context">{ 'graph_mode': 'line' }</field>
+    </record>
+
     <menuitem id="pacman_root" name="pacman" sequence="2"/>
     <menuitem id="pacman_graph" name="report" parent="pacman_root" action="test_action"/>
+    <menuitem id="pacman_data" name="raw data" parent="pacman_root" action="test_action2"/>
 </odoo>

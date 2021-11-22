@@ -46,7 +46,7 @@ class rekap_siswa(models.Model):
     _description = 'Rekapan Nilai Siswa'
 
 
-    month = fields.Char(size=255, string="bulan", required=True)
+    month = fields.Date(string="Bulan", required=True)
     total_siswa = fields.Integer(string="total Siswa", required=True)
     total_nilai = fields.Float(string="total nilai", required=True)
     rata_rata = fields.Float(string="rata rata", required=True)
@@ -55,8 +55,7 @@ class rekap_siswa(models.Model):
         return """
         SELECT
         row_number() over () as id,
-        TO_CHAR(month, 'YYYY-MM-DD') AS "month", 
-        total_siswa, total_nilai,
+        month, total_siswa, total_nilai,
         total_nilai/total_siswa AS rata_rata
         FROM (SELECT
         DATE_TRUNC('month',time)AS  month,
